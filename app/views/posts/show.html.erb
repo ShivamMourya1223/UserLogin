@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @post.description %>
+</p>
+
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag(@post.image.url , width:500) %>
+</p>
+
+
+
+<%= form_for [@post, @post.comments.build]  do |f| %>
+<%= f.label 'New comment' %>
+<%= f.text_area :comment,id: 'input' %>
+<%= f.submit 'Submit'%>
+<% end %>
+
+
+<div id="comment_<%= @post.id %>">
+  <strong>Comments</strong>
+  <%= render 'comments/comment', post:@post %><br>
+</div>
+
+<div id = "likkke_<%= @post.id%>">
+  <strong>Likes</strong>
+  <%= render 'likes/like_post',post:@post %>
+</div>
+
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', root_path %>
+
+
+<script type="text/javascript">
+
+ $("#new_comment").submit(function(event) {
+   event. preventDefault();
+    // var post_id = "<%#= @post.id %>"
+    var data = $("#new_comment").serialize();
+    $.ajax({
+      url: "/posts/"+<%= @post.id %>+"/comments",
+      type: 'POST', 
+      data: data,
+      success: function(a){
+        alert('it works');
+      }
+    });
+  });
+
+</script>
+
+

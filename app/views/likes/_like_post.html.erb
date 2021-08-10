@@ -1,0 +1,11 @@
+
+<% post = Post.find_by(id:post)%>
+<% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
+<% if pre_like %>
+<span id="likkke_<%=post.id%>"><%= post.likes.count %></span>
+<span id= "like_btn"><%= link_to 'Unlike',post_like_path(post, pre_like), method: :delete, remote: true, id: "unlike_post_#{post.id}" %></span>
+<% else %>
+<span id="likkke_<%=post.id%>"><%= post.likes.count %></span>
+<span id= "like_btn"><%= link_to 'Like',post_likes_path(post), method: :post, remote:true, id: "like_post_#{post.id}" %>
+<% end %></span>
+

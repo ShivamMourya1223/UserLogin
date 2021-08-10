@@ -1,0 +1,2 @@
+$("#comment_<%= @post.id %>").html("<%= escape_javascript(render partial: 'comments/comment',locals: { post: @comment.post_id} ) %>"); 
+$('#input').val('');
