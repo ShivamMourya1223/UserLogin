@@ -1,26 +1,34 @@
-   <% if user_signed_in? == false %>
-   <h1>Posts</h1>
-   <table>
-    <% @posts.each_slice(3) do |posts| %>
-    <tr>
-      <% posts.each do |post| %>
-      <td><%=image_tag(post.image.url , width:250)%>
-        <h3><%= post.title %></h3></td>
-        <% end %>
-      </tr>  
-      <%end%>
-    </table> 
-    <%end%>
-    <% if user_signed_in? %>
-    
-    <%if current_user.role?("User")%>
-    Hii user
-    <%else%>
-    
-    <%= link_to ' New Post', new_post_path %><br>
-    <%= link_to 'View All Post', posts_path %><br>
-  
+   <div id = "col">
+    <div id = "cover-caption">
+      <div id = "sat">
+        <% if user_signed_in? == false %>
+        <h1>Posts</h1>
+        <div id = "col">
+        <table>
+          <% @posts.each_slice(3) do |posts| %>
+          <tr>
+            <% posts.each do |post| %>
+            <td><%=image_tag(post.image.url , width:250)%>
+              <h3><%= post.title %></h3></td>
+              <% end %>
+            </tr>  
+            <%end%>
+          </table>
+          </div> 
+          <%end%>
+          <% if user_signed_in? %>
 
-    <%end%>
-    <%end%>
+          <%if current_user.role?("User")%>
+          Hii user
+          <%else%>
+          <div class = "text-center .text-success">
+            <%= link_to ' New Post', new_post_path %><br><br>
+
+            <%= link_to 'View All Post', posts_path %>
+          </div>
+          <%end%>
+          <%end%>
+        </div>
+      </div>
+    </div>
 

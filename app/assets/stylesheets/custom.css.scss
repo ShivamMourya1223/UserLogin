@@ -1,0 +1,48 @@
+@import 'bootstrap/dist/css/bootstrap';
+.navbar {
+
+background-color: #FDF6EA !important;
+
+}
+
+.navbar-brand {
+
+font-size: 3rem;
+
+}
+
+h1 {
+
+color: gray;
+
+}
+
+#cover {
+    background: #222 url('https://unsplash.it/1920/1080/?random') center center no-repeat;
+    background-size: cover;
+    height: 50%;
+    text-align: center;
+    display: flex;
+    
+    position: relative;
+}
+
+#cover-caption {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+#sat{
+	margin: 0px 310px;
+	  text-align: center;
+}
+
+label {
+	font-size: 28px;
+	font-weight: 500;
+	display: block; 
+}
+
+#col{
+	background-color: lightgray;
+}
