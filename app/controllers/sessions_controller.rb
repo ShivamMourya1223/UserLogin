@@ -2,8 +2,7 @@ class SessionsController < Devise::SessionsController
 
 	def new
 		 super
-
-	end
+  end
 
 	def create
     pa = sign_in_params[:password]
@@ -13,17 +12,17 @@ class SessionsController < Devise::SessionsController
 
 
     if @user.blank?  
-      flash[:error] = "invalid username and username can't be blank"
+      flash[:alert] = "invalid username and username can't be blank"
       redirect_to user_session_path
     elsif !@user.blank? && @user.valid_password?(pa)
      sign_in @user
      redirect_to root_path
    elsif pa.blank?
-    flash[:error] = " password can't be blank "
-    render 'new'
+    flash[:alert] = " password can't be blank "
+    redirect_to user_session_path
   else
-    flash[:error] = " password is invalid "
-    render 'new'
+    flash[:alert] = " password is invalid "
+    redirect_to user_session_path
   end
 end
 end
