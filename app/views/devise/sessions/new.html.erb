@@ -1,34 +1,37 @@
-  <div id = "cover">
-    <div id = "cover-caption">
-      <div class="container">
-        <div id = "sat">
-          <h2>Log in</h2>
+   <div class="col-sm-12">
+    <div class="card">
+      <div class="card-header"><h2>Login!</h2></div>
+      <div class="mar">
+        <div class="card border" style="width: 33rem;margin-left: 550px;height: 400px;">
+          <div class="card-body">
+            <%= form_for(resource = User.new, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+            <div class="row">
+              <label for="inputEmail3" class="col-sm-2 col-form-label ">UserName or Email</label>
+              <%= f.text_field :user, autofocus: true, autocomplete: "email",class: "form-control w-50" %>
+            </div>
 
-          <%= form_for(resource = User.new, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="field">
-            <%= f.label 'Username or email' %><br />
-            <%= f.text_field :user,class: "form-control w-100"%>
-          </div>
+            <div class="row">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Password</label>
+              <%= f.password_field :password, autofocus: true, autocomplete: "email",class: "form-control w-50 inputfield" %>
+            </div>
+            
+            <% if devise_mapping.rememberable? %>
+            <div class="form-group form-inline">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+            <% end %>
 
-          <div class="field">
-            <%= f.label :password %><br />
-            <%= f.password_field :password, autocomplete: "current-password",class: "form-control w-100" %>
-          </div>
-
-          <% if devise_mapping.rememberable? %>
-          <div class="field">
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
-          </div>
-          <% end %>
-
-          <div class="actions">
-            <%= f.submit "Log in",class: "btn btn-success" %>
-          </div>
-          <% end %>
-          <%= render "devise/shared/links" %>
+            <div class="row">
+              <%= f.submit "Login",class: "btn btn-success" %>
+            </div>
+            <% end %>
+            <div>
+              <%= render "devise/shared/links" %>
+            </div>
+          </div>  
         </div>
       </div>
     </div>
-
-
+  </div>

@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
-  before_action :user_admin
+  # before_action :user_admin
 
   # GET /posts or /posts.json
   def index
@@ -65,14 +65,14 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
     end
 
-    def user_admin
-      if current_user.admin?
-        return true
-     else
-         flash[:alert] = "You don't have a permission to access this page"
-         redirect_to root_path
-      end
-    end
+    # def user_admin
+    #   if current_user.admin?
+    #     return true
+    #  else
+    #      flash[:alert] = "You don't have a permission to access this page"
+    #      redirect_to root_path
+    #   end
+    # end
 
     # Only allow a list of trusted parameters through.
     def post_params

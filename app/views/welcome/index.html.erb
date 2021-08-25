@@ -1,9 +1,9 @@
-   <div id = "col">
-    <div id = "cover-caption">
-      <div id = "sat">
-        <% if user_signed_in? == false %>
-        <h1>Posts</h1>
-        <div id = "col">
+<div id = "col">
+  <div id = "cover-caption">
+    <div id = "sat">
+
+      <h1>Posts</h1>
+      <div id = "col">
         <table>
           <% @posts.each_slice(3) do |posts| %>
           <tr>
@@ -14,21 +14,15 @@
             </tr>  
             <%end%>
           </table>
-          </div> 
-          <%end%>
-          <% if user_signed_in? %>
+        </div> 
+        
 
-          <%if current_user.role?("User")%>
-          Hii user
-          <%else%>
-          <div class = "text-center .text-success">
-            <%= link_to ' New Post', new_post_path %><br><br>
+        <div class = "text-center .text-success">
+          <%= link_to ' New Post', new_post_path %><br><br>
 
-            <%= link_to 'View All Post', posts_path %>
-          </div>
-          <%end%>
-          <%end%>
+          <%= link_to 'View All Post', posts_path %>
         </div>
       </div>
     </div>
+  </div>
 
