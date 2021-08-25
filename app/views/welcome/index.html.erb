@@ -1,26 +1,16 @@
-<div class="row justify-content-center"><nav class="navbar navbar-light bg-light justify-content-between">
-</nav>
-<div class="col-sm-4">
-  <div class="card">
-   <div class="card-body">
-    <table>
-      <% @posts.each_slice(3) do |posts| %>
-      <tr>
-        <% posts.each do |post| %>
-        <td><%=image_tag(post.image.url , width:150)%>
-          <h3><%= post.title %></h3></td>
-          <% end %>
-        </tr>  
-        <%end%>
-      </table>
-    </div> 
-    <div class = "text-center .text-success">
-      <%= link_to ' New Post', new_post_path %><br><br>
-
-      <%= link_to 'View All Post', posts_path %>
+<div class="row">
+   <% @posts.each do |post| %>
+    <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%=post.title%></h5>
+        <%=image_tag(post.image.url , width:150)%>
+        <p class="card-text"><%=post.description%></p>
+      </div>
     </div>
-  </div>
+    </div>
+    <%end%>
 </div>
-</div>
+
 
 
