@@ -1,37 +1,39 @@
-   <div class="col-sm-12">
+  <div class="row justify-content-center"><nav class="navbar navbar-light bg-light justify-content-between">
+  </nav>
+  <div class="col-sm-4">
     <div class="card">
-      <div class="card-header"><h2>Login!</h2></div>
-      <div class="mar">
-        <div class="card border" style="width: 33rem;margin-left: 550px;height: 400px;">
-          <div class="card-body">
-            <%= form_for(resource = User.new, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <%= render "devise/shared/error_messages", resource: resource %>
-            <div class="row">
-              <label for="inputEmail3" class="col-sm-2 col-form-label ">UserName or Email</label>
-              <%= f.text_field :user, autofocus: true, autocomplete: "email",class: "form-control w-50" %>
-            </div>
+     <div class="card-header"><h2>Login!</h2></div>
+     <div class="card-body">
+      <%= form_for(resource = User.new, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label ">UserName or Email</label>
+        <%= f.text_field :user, autofocus: true, autocomplete: "email",class: "form-control w-50" %>
+      </div>
 
-            <div class="row">
-              <label for="inputEmail3" class="col-sm-2 col-form-label">Password</label>
-              <%= f.password_field :password, autofocus: true, autocomplete: "email",class: "form-control w-50 inputfield" %>
-            </div>
-            
-            <% if devise_mapping.rememberable? %>
-            <div class="form-group form-inline">
-              <%= f.check_box :remember_me %>
-              <%= f.label :remember_me %>
-            </div>
-            <% end %>
+      <div class="row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Password</label>
+        <%= f.password_field :password, autofocus: true, autocomplete: "email",class: "form-control w-50 inputfield" %>
+      </div>
 
-            <div class="row">
-              <%= f.submit "Login",class: "btn btn-success" %>
-            </div>
-            <% end %>
-            <div>
-              <%= render "devise/shared/links" %>
-            </div>
-          </div>  
+      <% if devise_mapping.rememberable? %>
+      <div class="mar2">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+      <% end %>
+
+      <div class="row">
+        <div class="col text-center">
+          <%= f.submit "Login",class: "btn btn-success" %>
         </div>
       </div>
-    </div>
+      <% end %>
+      <div>
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>  
   </div>
+</div>
+</div>
+</div>

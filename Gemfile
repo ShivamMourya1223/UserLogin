@@ -66,4 +66,4 @@ gem 'paperclip', '~> 6.1'
 gem 'will_paginate', '~> 3.1.0'
 gem 'omniauth-facebook'
 gem "omniauth-rails_csrf_protection", "~> 1.0"
-gem 'omniauth-google-oauth2'
+gem 'omniauth-google-oauth2','~> 0.8.0'

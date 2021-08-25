@@ -1,28 +1,26 @@
-<div id = "col">
-  <div id = "cover-caption">
-    <div id = "sat">
+<div class="row justify-content-center"><nav class="navbar navbar-light bg-light justify-content-between">
+</nav>
+<div class="col-sm-4">
+  <div class="card">
+   <div class="card-body">
+    <table>
+      <% @posts.each_slice(3) do |posts| %>
+      <tr>
+        <% posts.each do |post| %>
+        <td><%=image_tag(post.image.url , width:150)%>
+          <h3><%= post.title %></h3></td>
+          <% end %>
+        </tr>  
+        <%end%>
+      </table>
+    </div> 
+    <div class = "text-center .text-success">
+      <%= link_to ' New Post', new_post_path %><br><br>
 
-      <h1>Posts</h1>
-      <div id = "col">
-        <table>
-          <% @posts.each_slice(3) do |posts| %>
-          <tr>
-            <% posts.each do |post| %>
-            <td><%=image_tag(post.image.url , width:250)%>
-              <h3><%= post.title %></h3></td>
-              <% end %>
-            </tr>  
-            <%end%>
-          </table>
-        </div> 
-        
-
-        <div class = "text-center .text-success">
-          <%= link_to ' New Post', new_post_path %><br><br>
-
-          <%= link_to 'View All Post', posts_path %>
-        </div>
-      </div>
+      <%= link_to 'View All Post', posts_path %>
     </div>
   </div>
+</div>
+</div>
+
 
