@@ -67,3 +67,4 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'omniauth-facebook'
 gem "omniauth-rails_csrf_protection", "~> 1.0"
 gem 'omniauth-google-oauth2','~> 0.8.0'
+gem 'jwt'

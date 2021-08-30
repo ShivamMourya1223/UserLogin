@@ -1,6 +1,6 @@
 class LikesController < ApplicationController
 	before_action :find_post
-  before_action :find_like, only: [:destroy]
+	before_action :find_like, only: [:destroy]
 
 	def create
 		#debugger
@@ -35,11 +35,11 @@ class LikesController < ApplicationController
 	private
 	def find_post
 		# debugger
-		 if params[:comment_id]
+		if params[:comment_id]
 			@comment = Comment.find(params[:comment_id])
-		 else	
+		else	
 			@post = Post.find(params[:post_id])
-		 end
+		end
 	end
 
 
@@ -53,8 +53,8 @@ class LikesController < ApplicationController
 		end
 	end
 
- def find_like
- 		@like = @post.likes.find(params[:id])
- 	end
+	def find_like
+		@like = @post.likes.find(params[:id])
+	end
 
- end
+end

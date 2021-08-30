@@ -1,0 +1,4 @@
+$("#<%= @post.id %>").html("<%= escape_javascript(render partial: 'posts/view',locals: { post: @post} ) %>");
+$("#show_com_<%= @post.id %>").hide();
+$("#rvm_com_<%= @post.id %>").css("display", "");
+

@@ -1,5 +1,10 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
+  #before_action :authenticate_user! , only: [:create]
+  before_action :authenticate_user!, except: [:new, :create,:show]
+  respond_to :json
+
+   #before_action :process_token
   # before_action :user_admin
 
   # GET /posts or /posts.json
@@ -13,6 +18,7 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
+    
     #@user = User.find(params[:id])
     @post = Post.new
   end
@@ -26,12 +32,14 @@ class PostsController < ApplicationController
     # @user = User.find(params[:post][:current_user])
     @post = current_user.posts.create(post_params)
 
+
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: "Post was successfully created." }
-        format.json { render :show, status: :created, location: @post }
+         #format.html { redirect_to @post, notice: "Post was successfully created." }
+        # format.json { render :json,status: :created, location: @post }
+        format.json { render :json => @post }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        #format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end

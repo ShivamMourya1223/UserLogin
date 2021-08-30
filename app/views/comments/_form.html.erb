@@ -1,0 +1,12 @@
+<%= form_for [@post, @post.comments.build],remote:true,html: {id: "commentForm"}  do |f| %>
+  <div class="row">
+    
+      <%= f.label 'New comments' %>
+  
+      <%= f.text_area :comment,id: 'input',class:"textfield" %>
+   
+    
+  </div>
+    
+  <%= f.submit 'Submit',class:"button btn btn-success",id:"formButton"%>
+<% end %>

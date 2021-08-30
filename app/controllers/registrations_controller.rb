@@ -11,5 +11,4 @@ class RegistrationsController < Devise::RegistrationsController
 			@user.user_roles.create(role: @role)    
 		end
 	end
-
 end  
