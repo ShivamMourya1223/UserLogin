@@ -7,6 +7,7 @@ class Post < ApplicationRecord
     belongs_to :user
     has_many :comments
     has_many :likes, as: :likeable,dependent: :destroy
+     validates :title, presence: true
 
       # validates_uniqueness_of :title, scope: :user_id
 

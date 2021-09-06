@@ -5,9 +5,7 @@ class RegistrationsController < Devise::RegistrationsController
 	end
 
 	def create
-		debugger
-		super
-		debugger
+         super
 		if !@user.blank?
 			@role=Role.find_by_name(params[:user][:role])
 			@user.user_roles.create(role: @role)    

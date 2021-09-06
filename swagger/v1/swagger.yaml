@@ -1,0 +1,72 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+"paths": {
+
+  "/api/v1/signup": {
+    "post": {
+      "summary": "Create a new account.",
+      "tags": [
+        "User Authentication"
+      ],
+      "consumes": [
+        "application/json"
+      ],
+      "parameters": [
+        {
+          "name": "user",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "user": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                  },
+                  "password": {
+                    "type": "string",
+                  },
+                  "password_confirmation": {
+                    "type": "string",
+                  },
+                   "username": {
+                    "type": "string",
+                  },
+                     "role": {
+                    "type": "string",
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "responses": {
+        "422": {
+          "description": "Invalid request."
+        },
+        "201": {
+          "description": "User created successfully.",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "user": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

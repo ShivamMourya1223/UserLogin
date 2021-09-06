@@ -12,6 +12,11 @@ class User < ApplicationRecord
 
   has_many :user_roles,dependent: :destroy
   has_many :roles ,through: :user_roles
+  # validates_presence_of :username
+  validates :username, presence: true
+  validates :email, presence: true
+  validates :password, presence: true
+  validates :password_confirmation, presence: true
 
   def role? user
     self.roles.collect(&:name).first == user

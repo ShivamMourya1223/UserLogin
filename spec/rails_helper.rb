@@ -1,6 +1,7 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 require'devise'
+# require 'support/controller_helpers'
 # requireFile.expand_path("spec/support/controller_macros.rb")
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
@@ -39,11 +40,24 @@ RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
+
+ 
+
   config.use_transactional_fixtures = true
 
    config.include Devise::Test::ControllerHelpers, type: :controller
    config.include Devise::Test::IntegrationHelpers, type: :request
    config.extend ControllerMacros, :type => :controller
+
+   
+
+
+    # config.include Devise::TestHelpers, :type => :controller
+    # config.include ControllerHelpers, :type => :controller
+
+  
+
+
 
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false

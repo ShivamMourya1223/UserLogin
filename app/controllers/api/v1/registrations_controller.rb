@@ -6,6 +6,7 @@ class Api::V1::RegistrationsController <  Devise::RegistrationsController
 	end
 
 	def create
+		debugger
 	  user = User.new(sign_up_params)
 		if user.save
 			token = user.generate_jwt
